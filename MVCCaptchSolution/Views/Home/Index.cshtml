@@ -1,0 +1,31 @@
+﻿@using CaptchaMvc.HtmlHelpers
+
+@using CaptchaMvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET MVC Captcha!</h1>
+</div>
+
+<div class="row">   
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Feedback</legend>
+            
+            @Html.MathCaptcha()
+
+            <br />
+            <p class="Error">  @ViewBag.ErrMessage </p>
+            <p>
+                <input type="submit" value="Send" />
+            </p>
+        </fieldset>
+    }  
+</div>
